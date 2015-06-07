@@ -33,6 +33,8 @@ void withdrawals()
     scanf("%f",&m);
     while(getchar() != '\n')
     continue;
+    if(m<0)
+    printf("Error value of money!");
     if(m>info[i].money)
     printf("Your account balance is not enough.");
     else
@@ -62,6 +64,51 @@ void depoist()
     menu();
 }
 
+void transfer()
+{
+    float m;
+    int j=0;
+    int account;
+    int retry;
+    printf("Please input the transfer account: ");
+    scanf("%d",&account);
+    while(getchar() != '\n')
+    continue;
+    for(j=0;j<10;j++)
+    {
+        if(account==info[j].account)
+        {
+            printf("Please input the transfer account again: ");
+            scanf("%d",&retry);
+            while(getchar() != '\n')
+            continue;
+            if(account==retry)
+            {
+                printf("Please input the amount of money:$"); 
+                scanf("%f",&m);
+                while(getchar() != '\n')
+                continue;
+                if(m>10000 && m<0)
+                printf("Usage:The range of depoist is $0~$10000");
+                info[i].money-=m;
+                info[j].money+=m;
+                printf("Transaction completed.\n");
+                cls();
+                menu();
+            }
+            else
+            {
+                printf("Error:account is not match.\n");
+                cls();
+                menu();
+            }
+        }
+    }
+    printf("Sorry,the account is not accessable!\n");
+    cls();
+    menu();
+}
+
 void out()
 {
     printf("%s,Please get your card back.\n",info[i].name);
@@ -77,7 +124,8 @@ void menu()
     printf("**\tBalance inquiries----1\n");
     printf("**\tWithdrawals----------2\n");    
     printf("**\tDepoist--------------3\n");    
-    printf("**\tExit-----------------4\n");
+    printf("**\tTransfer-------------4\n");    
+    printf("**\tExit-----------------5\n");
     printf("**********Hello %s**************\n",info[i].name);
     while(1)
     {
@@ -97,6 +145,9 @@ void menu()
             depoist();
             break;
             case 4:
+            transfer();
+            break;
+            case 5:
             out();
             break;
             default:
