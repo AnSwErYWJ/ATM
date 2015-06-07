@@ -52,7 +52,7 @@ void depoist()
     while(getchar() != '\n')
     continue;
     if(m>10000 && m<0)
-    printf("The range of depoist is $0~$10000");
+    printf("Usage:The range of depoist is $0~$10000");
     else
     {
         info[i].money+=m;
