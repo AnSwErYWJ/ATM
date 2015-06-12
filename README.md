@@ -8,5 +8,5 @@
   实现了查询余额，存款，取款，转存等功能。
 
 # Compile and Run
-  make
+  make  
   ./atm
