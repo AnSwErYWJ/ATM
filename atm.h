@@ -7,7 +7,6 @@
 
 #ifndef _ATM_H
 #define _ATM_H
-#endif
 
 struct infomation
 {
@@ -28,3 +27,4 @@ struct infomation
     {"jiujiu",999,999,3278},
     {"shishi",101010,101010,2190}
 };
+#endif
